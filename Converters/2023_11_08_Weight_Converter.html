@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <label>Pounds</label> <!-- "Pounds" 라벨을 표시합니다. -->
+        <input id="inputPounds" type="number" placeholder="Pounds" oninput="weightConverter(this.value)"
+            onchange="weightConverter(this.value)"> 
+            <!-- 사용자 입력을 받는 파운드 입력 필드를 생성, 
+                값이 변경되면 JavaScript 함수를 호출 -->
+    </p>
+    <p>Grams: <span id="outputGrams"></span></p> <!-- 그램 변환 결과를 표시하는 부분. -->
+    <script>
+        // 값을 받을 때, 파운드 값을 그램으로 변환하는 함수를 호출
+        function weightConverter(valNum) {
+            document.getElementById("outputGrams").innerHTML = valNum / 0.0022046; 
+            // 그램으로 변환하고 결과를 화면에 표시
+        }
+    </script>
+</body>
+
+</html>
