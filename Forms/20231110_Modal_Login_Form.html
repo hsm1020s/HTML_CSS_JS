@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서</title>
+</head>
+<style>
+    /* 모달 (배경) */
+    .modal {
+        display: none; /* 기본적으로 숨김 */
+        position: fixed; /* 고정 위치 */
+        z-index: 1; /* 맨 위에 배치 */
+        left: 0;
+        top: 0;
+        width: 100%; /* 전체 너비 */
+        height: 100%; /* 전체 높이 */
+        overflow: auto; /* 필요한 경우 스크롤 활성화 */
+        background-color: rgb(0, 0, 0); /* 폴백 배경색 */
+        background-color: rgba(0, 0, 0, 0.4); /* 투명도 있는 검은색 */
+        padding-top: 60px;
+    }
+
+    /* 모달 내용/박스 */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5px auto; /* 상단에서 15% 떨어진 가운데 정렬 */
+        border: 1px solid #888;
+        width: 80%; /* 화면 크기에 따라 더 크거나 작을 수 있음 */
+    }
+
+    /* 닫기 버튼 */
+    .close {
+        /* 모달 외부 오른쪽 상단에 위치 */
+        position: absolute;
+        right: 25px;
+        top: 0;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    /* 닫기 버튼에 호버 효과 */
+    .close:hover,
+    .close:focus {
+        color: red; /* 마우스 호버 또는 포커스 시 글자색을 빨간색으로 변경 */
+        cursor: pointer; /* 포인터 커서로 변경하여 클릭 가능한 상태 표시 */
+    }
+
+    /* 모달 창을 나타내는 요소에 애니메이션 효과를 부여하기 위한 클래스 */
+    .animate {
+        /* 웹킷(WebKit) 엔진을 지원하는 브라우저용 애니메이션 스타일 지정 */
+        -webkit-animation: animatezoom 0.6s;
+        /* 일반적인 CSS 애니메이션 스타일 지정 */
+        animation: animatezoom 0.6s;
+    }
+
+    /* 웹킷(WebKit) 브라우저용 키프레임 정의 */
+    @-webkit-keyframes animatezoom {
+        /* 시작 키프레임: 크기를 0으로 스케일링하여 모달 창을 숨김 */
+        from {
+            -webkit-transform: scale(0);
+        }
+        /* 종료 키프레임: 크기를 1로 스케일링하여 모달 창을 나타냄 */
+        to {
+            -webkit-transform: scale(1);
+        }
+    }
+
+    /* 일반적인 CSS 브라우저용 키프레임 정의 */
+    @keyframes animatezoom {
+        /* 시작 키프레임: 크기를 0으로 스케일링하여 모달 창을 숨김 */
+        from {
+            transform: scale(0);
+        }
+        /* 종료 키프레임: 크기를 1로 스케일링하여 모달 창을 나타냄 */
+        to {
+            transform: scale(1);
+        }
+    }
+</style>
+
+<body>
+    <!-- 모달 로그인 폼을 열기 위한 버튼 -->
+    <button onclick="document.getElementById('id01').style.display='block'">로그인</button>
+
+    <!-- 모달 -->
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="모달 닫기">&times;</span>
+
+        <!-- 모달 내용 -->
+        <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="아바타" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>사용자명</b></label>
+                <input type="text" placeholder="사용자명 입력" name="uname" required>
+
+                <label for="psw"><b>비밀번호</b></label>
+                <input type="password" placeholder="비밀번호 입력" name="psw" required>
+
+                <button type="submit">로그인</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> 기억하기
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">취소</button>
+                <span class="psw">비밀번호 <a href="#">잊어버렸나요?</a></span>
+            </div>
+        </form>
+    </div>
+    <script>
+        // 모달 가져오기
+        var modal = document.getElementById('id01');
+
+        // 사용자가 모달 외부를 클릭하면 모달 닫기
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
