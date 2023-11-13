@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* 모든 요소의 box-sizing 속성을 border-box로 설정 */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* 두 개의 동일한 너비를 가진 열을 만들기 위한 스타일 */
+        .column {
+            float: left;/* 왼쪽으로 부유 */
+            width: 50%;/* 화면의 50% 너비 */
+            padding: 10px;/* 패딩 10px */
+            height: 300px;/* 높이 300px */
+            
+        }
+
+        /* 열 다음에 나오는 가상 요소를 사용하여 부유(floating)된 열 뒤의 내용을 지우고, 부유를 해제(clear) */
+        .row:after {
+            content: "";/* 내용 없음 */
+            display: table;/* 테이블로 표시 */
+            clear: both;/* 부유를 해제 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Two Equal Columns</h2>
+
+    <div class="row">
+        <div class="column" style="background-color:#aaa;">
+            <h2>Column 1</h2>
+            <p>Some text..</p>
+        </div>
+        <div class="column" style="background-color:#bbb;">
+            <h2>Column 2</h2>
+            <p>Some text..</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
