@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구글차트</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <!-- 웹 페이지 제목 -->
+    <h1>My Web Page</h1>
+
+    <!-- 파이 차트를 표시할 <div> 요소 -->
+    <div id="piechart"></div>
+
+    <!-- Google Charts 라이브러리를 로드하고 차트를 그리는 JavaScript 코드 -->
+    <script type="text/javascript">
+        // Google Charts 라이브러리를 로드
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+        // 라이브러리 로드 후 실행할 함수를 지정
+        google.charts.setOnLoadCallback(drawChart);
+
+        // 차트를 그리는 함수
+        function drawChart() {
+            // 데이터 배열을 Google Charts 형식으로 변환
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work', 8],
+                ['Friends', 2],
+                ['Eat', 2],
+                ['TV', 2],
+                ['Gym', 2],
+                ['Sleep', 8]
+            ]);
+
+            // 차트의 옵션 설정 (제목, 너비, 높이)
+            var options = { 'title': 'My Average Day', 'width': 550, 'height': 400 };
+
+            // 파이 차트를 표시할 <div> 요소 지정
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            // 차트를 그리기
+            chart.draw(data, options);
+        }
+    </script>
+</body>
+
+</html>
