@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드쇼</title>
+    <style>
+        * {
+            box-sizing: border-box; /* 모든 요소의 크기 계산에 경계 상자 모델 사용 */
+        }
+
+        /* 슬라이드쇼 컨테이너 */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* 기본적으로 이미지를 숨김 */
+        .mySlides {
+            display: none;
+        }
+
+        /* 이전 및 다음 버튼 */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            /* 속성의 변화가 일어날 때 애니메이션을 적용하는데 사용 */
+            border-radius: 0 3px 3px 0;
+            /* 요소의 테두리 부분의 모서리를 둥글게 만듬 */
+            user-select: none;
+            /* 속성은 사용자가 텍스트를 선택하는 것을 허용 또는 금지할지를 지정 */
+        }
+
+        /* "다음" 버튼을 오른쪽에 위치시킴 */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* 호버 시, 약간 투명한 검은 배경 추가 */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* 캡션 텍스트 */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* 숫자 텍스트 (1/3 등) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* 도트/불릿/인디케이터 */
+        .dot {
+            cursor: pointer;
+            /* 마우스 커서를 손가락 형태로 변경하여 
+            사용자에게 해당 요소가 클릭 가능하다는 시각적인 힌트를 제공 */
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            /* 도트를 둥글게 만듬. 50% 값은 도트를 원 형태로 만듬 */
+            display: inline-block;
+            /* 도트를 인라인 블록 요소로 설정.
+            이는 다른 인라인 요소와 동일한 라인에 배치되면서 블록 요소의 성질을 가짐 */
+            transition: background-color 0.6s ease;
+            /* 배경색이 바뀔 때 애니메이션 효과를 부여 */
+            /* background-color 속성의 변화에 대해 0.6초 동안 ease 함수를 사용하여 
+            부드러운 애니메이션 효과를 적용.
+            즉, 배경색이 변할 때 0.6초 동안 부드럽게 변화 */
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        /* 페이딩 애니메이션 */
+        .fade {
+            /* 페이딩 애니메이션을 적용할 대상을 선택하는데 사용 */
+            /*  클래스 이름이 "fade"인 모든 요소에 이 규칙이 적용 */
+            animation-name: fade;
+            /* 애니메이션의 이름을 "fade"로 설정 */
+            /* @keyframes 규칙에서 정의한 애니메이션을 참조 */
+            animation-duration: 1.5s;
+            /* 애니메이션의 지속 시간을 1.5초로 설정 */
+            /* 이는 요소가 투명에서 불투명 또는 불투명에서 투명으로 변화하는 데 걸리는 시간을 나타냄 */
+        }
+
+        @keyframes fade { 
+            /* 애니메이션을 정의 */
+            from {
+                opacity: .4
+            }
+            /* 애니메이션이 시작되는 지점을 나타냄 
+            여기서는 투명도(opacity)가 0.4로 시작 */
+
+            to {
+                opacity: 1
+            }
+            /* 애니메이션이 끝나는 지점을 나타냄 
+            여기서는 투명도(opacity)가 1로 끝남 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 슬라이드쇼 컨테이너 -->
+    <div class="slideshow-container">
+
+        <!-- 전체 폭 이미지와 번호 및 캡션 텍스트 -->
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
+            <div class="text">캡션 텍스트</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="https://www.w3schools.com/howto/img_snow_wide.jpg" style="width:100%">
+            <div class="text">캡션 두 번째</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
+            <div class="text">캡션 세 번째</div>
+        </div>
+
+        <!-- 이전 및 다음 버튼 -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- 도트/서클 -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <script>
+        // 슬라이드의 현재 인덱스를 나타내는 변수 선언 및 초기화
+let slideIndex = 1;
+
+// 초기 슬라이드 표시
+showSlides(slideIndex);
+
+// 다음/이전 컨트롤 함수
+function plusSlides(n) {
+    // 현재 슬라이드 인덱스에 n 값을 더하고 새로운 슬라이드를 표시
+    showSlides(slideIndex += n);
+}
+
+// 특정 슬라이드로 이동하는 함수
+function currentSlide(n) {
+    // 지정된 슬라이드를 표시
+    showSlides(slideIndex = n);
+}
+
+// 실제 슬라이드를 표시하는 함수
+function showSlides(n) {
+    let i;  // 모든 슬라이드 요소들을 가져와서 배열로 저장
+    
+    let slides = document.getElementsByClassName("mySlides");
+    // 모든 도트(인디케이터) 요소들을 가져와서 배열로 저장
+    let dots = document.getElementsByClassName("dot");
+
+    // 인덱스가 슬라이드 개수를 초과하면 처음으로 돌아감
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    // 인덱스가 1보다 작으면 마지막 슬라이드로 이동
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+
+    // 모든 슬라이드를 숨김
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    // 모든 도트에 있는 'active' 클래스를 제거
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    // 현재 인덱스에 해당하는 슬라이드를 보이도록 설정
+    slides[slideIndex - 1].style.display = "block";
+
+    // 현재 인덱스에 해당하는 도트에 'active' 클래스 추가
+    dots[slideIndex - 1].className += " active";
+}
+    </script>
+</body>
+
+</html>
