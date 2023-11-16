@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Font Awesome 아이콘 라이브러리를 가져옴 -->
+<style>
+    body {
+        margin: 0
+    }
+    /* body의 margin을 0으로 설정 */
+
+    .icon-bar {
+        width: 90px;
+        /* 아이콘 바의 너비를 90px로 설정 */
+        background-color: #555;
+        /* 아이콘 바의 배경색을 어두운 회색(#555)으로 설정 */
+    }
+
+    .icon-bar a {
+        display: block;
+        /* 링크를 블록 요소로 설정하여 전체 너비를 차지하게 함 */
+        text-align: center;
+        /* 텍스트를 가운데 정렬 */
+        padding: 16px;
+        /* 안쪽 여백 */
+        transition: all 0.3s ease;
+        /* 모든 속성에 대한 변화를 0.3초 동안 부드럽게 적용 */
+        color: white;
+        /* 텍스트 색상을 흰색으로 설정 */
+        font-size: 36px;
+    }
+
+    .icon-bar a:hover {
+        background-color: #000;
+        /* 링크에 마우스를 올렸을 때 배경색을 검은색으로 변경 */
+    }
+
+    .active {
+        background-color: #04AA6D;
+        
+    }
+</style>
+
+<body>
+
+    <div class="icon-bar">
+        <a class="active" href="#"><i class="fa fa-home"></i></a> 
+        <a href="#"><i class="fa fa-search"></i></a> 
+        <a href="#"><i class="fa fa-envelope"></i></a> 
+        <a href="#"><i class="fa fa-globe"></i></a> <!-- 지구 아이콘 링크 -->
+        <a href="#"><i class="fa fa-trash"></i></a> 
+    </div>
+
+</body>
+
+</html>
