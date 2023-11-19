@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* 모든 요소의 크기 계산 방식을 변경 */
+* {
+  box-sizing: border-box;
+}
+
+/* body 스타일 지정 */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* 폰트 지정 */
+  margin: 0; /* 바깥 여백 제거 */
+}
+
+/* 헤더/로고 타이틀 스타일 */
+.header {
+  padding: 80px; /* 안쪽 여백 */
+  text-align: center; /* 가운데 정렬 */
+  background: #1abc9c; /* 배경색 */
+  color: white; /* 글자색 */
+}
+
+/* 헤딩의 글자 크기 증가 */
+.header h1 {
+  font-size: 40px;
+}
+
+/* 상단 네비게이션 바 스타일 */
+.navbar {
+  overflow: hidden; /* 넘치는 부분 감추기 */
+  background-color: #333; /* 배경색 */
+}
+
+/* 네비게이션 바 링크 스타일 */
+.navbar a {
+  float: left; /* 왼쪽 정렬 */
+  display: block; /* 블록 요소로 설정 */
+  color: white; /* 글자색 */
+  text-align: center; /* 가운데 정렬 */
+  padding: 14px 20px; /* 안쪽 여백 */
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+/* 오른쪽 정렬된 링크 */
+.navbar a.right {
+  float: right; /* 오른쪽 정렬 */
+}
+
+/* 호버 시 색상 변경 */
+.navbar a:hover {
+  background-color: #ddd; /* 배경색 변경 */
+  color: black; /* 글자색 변경 */
+}
+
+/* 컬럼 컨테이너 스타일 */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* 두 개의 다른 크기의 컬럼 생성 */
+/* 사이드바/왼쪽 컬럼 */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1; /* 배경색 */
+  padding: 20px; /* 안쪽 여백 */
+}
+
+/* 메인 컬럼 */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white; /* 배경색 */
+  padding: 20px; /* 안쪽 여백 */
+}
+
+/* 가짜 이미지, 이 예제를 위한 것임 */
+.fakeimg {
+  background-color: #aaa; /* 배경색 */
+  width: 100%;
+  padding: 20px; /* 안쪽 여백 */
+}
+
+/* 푸터 스타일 */
+.footer {
+  padding: 20px; /* 안쪽 여백 */
+  text-align: center; /* 가운데 정렬 */
+  background: #ddd; /* 배경색 */
+}
+
+/* 반응형 레이아웃 - 화면 너비가 700px 미만이면, 두 컬럼을 옆으로 나열하는 대신 위로 쌓기 */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column; /* 세로 방향으로 변경 */
+  }
+}
+
+/* 반응형 레이아웃 - 화면 너비가 400px 미만이면, 네비게이션 링크를 옆으로 나열하는 대신 위로 쌓기 */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none; /* 플로팅 해제 */
+    width: 100%; /* 전체 너비로 설정 */
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>My Website</h1>
+  <p>A website created by me.</p>
+</div>
+
+<div class="navbar">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#" class="right">Link</a>
+</div>
+
+<div class="row">
+  <div class="side">
+    <h2>About Me</h2>
+    <h5>Photo of me:</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    <h3>More Text</h3>
+    <p>Lorem ipsum dolor sit ame.</p>
+    <div class="fakeimg" style="height:60px;">Image</div><br>
+    <div class="fakeimg" style="height:60px;">Image</div><br>
+    <div class="fakeimg" style="height:60px;">Image</div>
+  </div>
+  <div class="main">
+    <h2>TITLE HEADING</h2>
+    <h5>Title description, Dec 7, 2017</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text..</p>
+    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    <br>
+    <h2>TITLE HEADING</h2>
+    <h5>Title description, Sep 2, 2017</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text..</p>
+    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>
