@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20231124_Filter_Search_Table 실습</title>
+    <style>
+        /* 모든 요소에 대해 box-sizing 속성을 적용하여, 
+        border와 padding이 요소의 크기에 포함되도록 설정 */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* 아이디가 'myInput'인 요소에 대한 스타일 지정 */
+        #myInput {
+            /* 배경 이미지 설정 */
+            background-image: url('/css/searchicon.png');
+            /* 배경 이미지 위치 설정 */
+            background-position: 10px 10px;
+            /* 배경 이미지 반복 설정 */
+            background-repeat: no-repeat;
+            /* 너비 100% 설정 */
+            width: 100%;
+            /* 글자 크기 설정 */
+            font-size: 16px;
+            /* 내부 여백 설정 (상, 우, 하, 좌) */
+            padding: 12px 20px 12px 40px;
+            /* 테두리 설정 */
+            border: 1px solid #ddd;
+            /* 하단 여백 설정 */
+            margin-bottom: 12px;
+        }
+
+        /* 아이디가 'myTable'인 요소에 대한 스타일 지정 */
+        #myTable {
+            /* 테이블 테두리가 서로 만나지 않도록 설정 */
+            border-collapse: collapse;
+            /* 너비 100% 설정 */
+            width: 100%;
+            /* 테두리 설정 */
+            border: 1px solid #ddd;
+            /* 글자 크기 설정 */
+            font-size: 18px;
+        }
+
+        /* 테이블의 th(테이블 헤더)와 td(테이블 데이터)에 대한 스타일 지정 */
+        #myTable th,
+        #myTable td {
+            /* 텍스트 정렬 왼쪽 설정 */
+            text-align: left;
+            /* 내부 여백 설정 */
+            padding: 12px;
+        }
+
+        /* 테이블의 각 행에 대한 스타일 지정 */
+        #myTable tr {
+            /* 하단에 1px 두께의 실선 테두리 설정 */
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* 테이블의 헤더 행과 마우스 호버 시의 스타일 지정 */
+        #myTable tr.header,
+        #myTable tr:hover {
+            /* 배경색 설정 */
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>My Customers</h2>
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+    <table id="myTable">
+        <tr class="header">
+            <th style="width:60%;">Name</th>
+            <th style="width:40%;">Country</th>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Berglunds snabbkop</td>
+            <td>Sweden</td>
+        </tr>
+        <tr>
+            <td>Island Trading</td>
+            <td>UK</td>
+        </tr>
+        <tr>
+            <td>Koniglich Essen</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Canada</td>
+        </tr>
+        <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Italy</td>
+        </tr>
+        <tr>
+            <td>North/South</td>
+            <td>UK</td>
+        </tr>
+        <tr>
+            <td>Paris specialites</td>
+            <td>France</td>
+        </tr>
+    </table>
+
+    <script>
+        // 검색 기능을 수행하는 함수 정의
+        function myFunction() {
+            // 입력된 검색어를 받아오는 변수
+            var input,
+                // 대소문자 구분 없이 비교하기 위한 검색어 변수
+                filter,
+                // 테이블, 테이블 행, 테이블 셀, 반복문 변수 및 셀 내용을 담을 변수
+                table, tr, td, i, txtValue;
+
+            // 입력 요소에서 검색어를 가져옴
+            input = document.getElementById("myInput");
+            // 입력된 검색어를 대문자로 변환하여 대소문자 구분 없이 비교할 수 있도록 함
+            filter = input.value.toUpperCase();
+            // 테이블 요소를 가져옴
+            table = document.getElementById("myTable");
+            // 테이블의 각 행 요소를 가져옴
+            tr = table.getElementsByTagName("tr");
+
+            // 각 행에 대해 반복문 수행
+            for (i = 0; i < tr.length; i++) {
+                // 현재 행에서 첫 번째 셀을 가져옴
+                td = tr[i].getElementsByTagName("td")[0];
+
+                // 만약 셀이 존재한다면
+                if (td) {
+                    // 셀 내용을 가져옴 (텍스트 컨텐츠 또는 인너 텍스트)
+                    txtValue = td.textContent || td.innerText;
+
+                    // 검색어가 셀 내용에 포함되어 있다면 해당 행을 표시, 그렇지 않으면 숨김
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
