@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    /* 모든 요소의 상자 모델을 테두리 상자로 설정 */
+    * {
+      box-sizing: border-box;
+    }
+  
+    /* body 요소 스타일링 */
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  
+    /* 그리드: 옆으로 나란히 놓인 세 개의 동일한 너비의 열 */
+    .column {
+      float: left; /* 왼쪽으로 부유(floating) */
+      width: 33.33%; /* 전체 너비 중 1/3만큼 차지 */
+      padding: 50px; /* 안쪽 여백 설정 */
+      text-align: center; /* 텍스트 가운데 정렬 */
+      font-size: 25px; /* 글꼴 크기 설정 */
+      cursor: pointer; /* 포인터 모양의 커서로 설정 */
+      color: white; /* 글자색을 흰색으로 설정 */
+    }
+  
+    /* 탭을 감싸는 컨테이너 스타일링 */
+    .containerTab {
+      padding: 20px; /* 안쪽 여백 설정 */
+      color: white; /* 글자색을 흰색으로 설정 */
+    }
+  
+    /* 열 다음에 나오는 모든 부유(floating) 요소들을 정리하여 다음 행으로 이동 */
+    .row:after {
+      content: ""; /* 가상의 콘텐츠 추가 */
+      display: table; /* 테이블 형태로 표시 */
+      clear: both; /* 양쪽에서의 부유(floating) 요소 제거 */
+    }
+  
+    /* 컨테이너 탭 내의 닫기 버튼 스타일링 */
+    .closebtn {
+      float: right; /* 오른쪽으로 부유(floating) */
+      color: white; /* 글자색을 흰색으로 설정 */
+      font-size: 35px; /* 글꼴 크기 설정 */
+      cursor: pointer; /* 포인터 모양의 커서로 설정 */
+    }
+  </style>
+</head>
+<body>
+
+<div style="text-align:center">
+  <h2>Expanding Grid</h2>
+  <p>Click on the boxes below:</p>
+</div>
+
+<!-- Three columns -->
+<div class="row">
+  <div class="column" onclick="openTab('b1');" style="background:green;">
+    Box 1
+  </div>
+  <div class="column" onclick="openTab('b2');" style="background:blue;">
+    Box 2
+  </div>
+  <div class="column" onclick="openTab('b3');" style="background:red;">
+    Box 3
+  </div>
+</div>
+
+<!-- Full-width columns: (hidden by default) -->
+<div id="b1" class="containerTab" style="display:none;background:green">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <h2>Box 1</h2>
+  <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+</div>
+
+<div id="b2" class="containerTab" style="display:none;background:blue">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <h2>Box 2</h2>
+  <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+</div>
+
+<div id="b3" class="containerTab" style="display:none;background:red">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <h2>Box 3</h2>
+  <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+</div>
+
+<script>
+    // 탭을 열기 위한 함수 정의
+    function openTab(tabName) {
+      var i, x;
+  
+      // 모든 컨테이너 탭을 숨김으로 설정
+      x = document.getElementsByClassName("containerTab");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+  
+      // 선택한 탭을 보이도록 설정
+      document.getElementById(tabName).style.display = "block";
+    }
+  </script>
+
+</body>
+</html> 
