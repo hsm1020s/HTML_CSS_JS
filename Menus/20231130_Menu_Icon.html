@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* 컨테이너 스타일 설정 */
+        .container {
+            display: inline-block;
+            /* 인라인 블록 요소로 설정 */
+            cursor: pointer;
+            /* 커서를 포인터로 변경하여 클릭 가능한 모양으로 설정 */
+        }
+
+        /* 세로 막대 스타일 설정 (bar1, bar2, bar3 클래스에 적용) */
+        .bar1,
+        .bar2,
+        .bar3 {
+            width: 35px;
+            /* 가로 길이 35픽셀로 설정 */
+            height: 5px;
+            /* 세로 길이 5픽셀로 설정 */
+            background-color: #333;
+            /* 배경 색상을 어두운 회색(#333)으로 설정 */
+            margin: 6px 0;
+            /* 위아래 여백을 6픽셀로 설정, 좌우 여백은 0 */
+            transition: 0.4s;
+            /* 변화에 대한 전환 효과를 0.4초로 설정 */
+        }
+
+        /* 변경 상태일 때 각 막대의 스타일 설정 */
+        .change .bar1 {
+            transform: translate(0, 11px) rotate(-45deg);
+            /* 변환 효과로 위치 이동 및 회전 설정 */
+        }
+
+        .change .bar2 {
+            opacity: 0;
+            /* 투명도를 0으로 설정하여 숨김 */
+        }
+
+        .change .bar3 {
+            transform: translate(0, -11px) rotate(45deg);
+            /* 변환 효과로 위치 이동 및 회전 설정 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Click on the Menu Icon to transform it to "X":</p>
+    <div class="container" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+    <script>
+        // 함수 정의: myFunction
+        function myFunction(x) {
+            // 전달받은 요소(x)의 클래스에 "change" 토글(toggle) 적용
+            x.classList.toggle("change");
+        }
+    </script>
+    
+
+</body>
+
+</html>
