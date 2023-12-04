@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* 테이블 전반적인 스타일 지정 */
+        table {
+            border-collapse: collapse;
+            /* 테이블 셀 경계를 합침 */
+            border-spacing: 0;
+            /* 테이블 셀 사이 간격 없음 */
+            width: 100%;
+            /* 테이블 전체 폭을 100%로 설정 */
+            border: 1px solid #ddd;
+            /* 테이블 외곽선 스타일 및 색상 설정 */
+        }
+
+        /* 테이블의 th(헤더) 및 td(데이터) 요소 스타일 지정 */
+        th,
+        td {
+            text-align: center;
+            /* 텍스트 가운데 정렬 */
+            padding: 16px;
+            /* 셀 안의 내용과 셀 경계 간의 간격 설정 */
+        }
+
+        /* 첫 번째 열의 th(헤더) 및 td(데이터) 요소의 텍스트 정렬을 왼쪽으로 설정 */
+        th:first-child,
+        td:first-child {
+            text-align: left;
+        }
+
+        /* 짝수 번째 행의 배경색을 회색으로 지정 */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* 클래스 fa-check의 아이콘 색상을 녹색으로 지정 */
+        .fa-check {
+            color: green;
+        }
+
+        /* 클래스 fa-remove의 아이콘 색상을 빨간색으로 지정 */
+        .fa-remove {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Comparison Table</h2>
+
+    <table>
+        <tr>
+            <th style="width:50%">Features</th>
+            <th>Basic</th>
+            <th>Pro</th>
+        </tr>
+        <tr>
+            <td>Sample text</td>
+            <td><i class="fa fa-remove"></i></td>
+            <td><i class="fa fa-check"></i></td>
+        </tr>
+        <tr>
+            <td>Sample text</td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+        </tr>
+        <tr>
+            <td>Sample text</td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+        </tr>
+        <tr>
+            <td>Sample text</td>
+            <td><i class="fa fa-remove"></i></td>
+            <td><i class="fa fa-check"></i></td>
+        </tr>
+        <tr>
+            <td>Sample text</td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+        </tr>
+    </table>
+</body>
+</html>
