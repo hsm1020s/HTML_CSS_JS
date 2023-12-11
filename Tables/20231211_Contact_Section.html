@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* 전체 body에 적용되는 스타일 */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            /* 폰트 설정 */
+        }
+
+        /* 모든 요소에 border-box 크기 모델 적용 */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* 입력 요소(input, select, textarea) 스타일 설정 */
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            /* 전체 너비로 설정 */
+            padding: 12px;
+            /* 안쪽 여백 */
+            border: 1px solid #ccc;
+            /* 테두리 스타일 및 색상 */
+            margin-top: 6px;
+            /* 위 여백 */
+            margin-bottom: 16px;
+            /* 아래 여백 */
+            resize: vertical;
+            /* 세로 크기 조절 가능 */
+            /* 수직 방향으로만 크기를 조절 */
+            /* 주로 <textarea> 요소에 적용되며 사용자가 텍스트 입력 영역의 크기를 조절할 수 있게 함. */
+        }
+
+        /* 제출 버튼(input[type=submit]) 스타일 설정 */
+        input[type=submit] {
+            background-color: #04AA6D;
+            /* 배경색 */
+            color: white;
+            /* 글자색 */
+            padding: 12px 20px;
+            /* 안쪽 여백 */
+            border: none;
+            /* 테두리 없음 */
+            cursor: pointer;
+            /* 커서 스타일 포인터로 변경 */
+        }
+
+        /* 제출 버튼에 호버 효과 설정 */
+        input[type=submit]:hover {
+            background-color: #45a049;
+            /* 호버 시 배경색 변경 */
+        }
+
+        /* 컨테이너/연락 섹션 스타일 설정 */
+        .container {
+            border-radius: 5px;
+            /* 테두리 모서리 둥글게 */
+            background-color: #f2f2f2;
+            /* 배경색 */
+            padding: 10px;
+            /* 안쪽 여백 */
+        }
+
+        /* 두 개의 열을 나란히 배치하는 스타일 설정 */
+        .column {
+            float: left;
+            /* 왼쪽으로 부유 */
+            width: 50%;
+            /* 50% 너비 */
+            margin-top: 6px;
+            /* 위 여백 */
+            padding: 20px;
+            /* 안쪽 여백 */
+        }
+
+        /* 열 이후에 부유 해제(다음 요소들이 부유한 열 옆으로 배치되지 않도록 설정) */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* 반응형 레이아웃 - 화면이 600px 미만이면 열을 나란히 배치 대신 위로 쌓음 */
+        @media screen and (max-width: 600px) {
+
+            .column,
+            input[type=submit] {
+                width: 100%;
+                /* 전체 너비로 설정 */
+                margin-top: 0;
+                /* 위 여백 제거 */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Responsive Contact Section</h2>
+    <p>Resize the browser window to see the effect.</p>
+
+    <div class="container">
+        <div style="text-align:center">
+            <h2>Contact Us</h2>
+            <p>Swing by for a cup of coffee, or leave us a message:</p>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="/w3images/map.jpg" style="width:100%">
+            </div>
+            <div class="column">
+                <form action="/action_page.php">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                        <option value="australia">Australia</option>
+                        <option value="canada">Canada</option>
+                        <option value="usa">USA</option>
+                    </select>
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.."
+                        style="height:170px"></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
