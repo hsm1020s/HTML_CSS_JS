@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* 아코디언 요소의 스타일 */
+        .accordion {
+            background-color: #eee;
+            /* 배경색은 연한 회색 */
+            color: #444;
+            /* 글자색은 진한 회색 */
+            cursor: pointer;
+            /* 커서 모양은 포인터로 변경 */
+            padding: 18px;
+            /* 안쪽 여백은 18px */
+            width: 100%;
+            /* 너비는 100% */
+            border: none;
+            /* 테두리 없음 */
+            text-align: left;
+            /* 텍스트 정렬은 왼쪽 */
+            outline: none;
+            /* 아웃라인 없음 */
+            font-size: 15px;
+            /* 글자 크기는 15px */
+            transition: 0.4s;
+            /* 전환 효과는 0.4초 */
+        }
+
+        /* 활성화된 상태 또는 호버 상태의 아코디언 스타일 */
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+            /* 배경색은 연한 회색으로 변경 */
+        }
+
+        /* 아코디언 오른쪽에 화살표 스타일 */
+        .accordion:after {
+            content: '\002B';
+            /* 내용은 + 기호 */
+            color: #777;
+            /* 글자색은 회색 */
+            font-weight: bold;
+            /* 글자 두께는 굵게 */
+            float: right;
+            /* 오른쪽으로 부유 */
+            margin-left: 5px;
+            /* 왼쪽 여백은 5px */
+        }
+
+        /* 활성화된 상태의 아코디언에서는 화살표를 - 기호로 변경 */
+        .active:after {
+            content: "\2212";
+            /* 내용은 - 기호 */
+        }
+
+        /* 패널(아코디언 내용)의 스타일 */
+        .panel {
+            padding: 0 18px;
+            /* 안쪽 여백은 위아래 0, 좌우 18px */
+            background-color: white;
+            /* 배경색은 흰색 */
+            max-height: 0;
+            /* 최대 높이는 0으로 초기화 */
+            overflow: hidden;
+            /* 넘치는 부분은 숨김 처리 */
+            transition: max-height 0.2s ease-out;
+            /* 최대 높이에 대한 전환 효과 */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Accordion with symbols</h2>
+    <p>In this example we have added a "plus" sign to each button. When the user clicks on the button, the "plus" sign
+        is replaced with a "minus" sign.</p>
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.</p>
+    </div>
+
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.</p>
+    </div>
+
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.</p>
+    </div>
+
+    <script>
+        // 아코디언 요소들을 가져와서 배열로 저장
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        // 모든 아코디언 요소에 대해 반복
+        for (i = 0; i < acc.length; i++) {
+            // 클릭 이벤트 리스너 추가
+            acc[i].addEventListener("click", function () {
+                // 현재 클릭된 아코디언에 'active' 클래스 토글
+                this.classList.toggle("active");
+
+                // 클릭된 아코디언의 다음 형제 요소(패널) 가져오기
+                var panel = this.nextElementSibling;
+
+                // 패널의 최대 높이가 설정되어 있는 경우 해제하고 그렇지 않은 경우 설정
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

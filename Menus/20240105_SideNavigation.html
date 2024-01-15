@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* 전체 body에 대한 스타일 설정 */
+        body {
+            font-family: "Lato", sans-serif;
+            /* 글꼴 설정 */
+        }
+
+        /* 사이드 네비게이션 메뉴에 대한 스타일 설정 */
+        .sidenav {
+            height: 100%;
+            /* 높이를 화면 전체로 설정 */
+            width: 0;
+            /* 초기에는 감춤 */
+            position: fixed;
+            /* 고정 위치 설정 */
+            z-index: 1;
+            /* 다른 요소 위에 표시 */
+            top: 0;
+            /* 상단에 위치 */
+            left: 0;
+            /* 좌측에 위치 */
+            background-color: #111;
+            /* 배경 색상 설정 */
+            overflow-x: hidden;
+            /* x축 스크롤바 감춤 */
+            transition: 0.5s;
+            /* 변화에 대한 부드러운 전환 효과 설정 */
+            padding-top: 60px;
+            /* 상단 여백 설정 */
+        }
+
+        /* 사이드 네비게이션 메뉴 내부 링크에 대한 스타일 설정 */
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            /* 안쪽 여백 설정 */
+            text-decoration: none;
+            /* 밑줄 제거 */
+            font-size: 25px;
+            /* 글자 크기 설정 */
+            color: #818181;
+            /* 글자 색상 설정 */
+            display: block;
+            /* 블록 요소로 설정하여 전체 너비 차지 */
+            transition: 0.3s;
+            /* 변화에 대한 부드러운 전환 효과 설정 */
+        }
+
+        /* 마우스 호버 시 링크 색상 변경 */
+        .sidenav a:hover {
+            color: #f1f1f1;
+            /* 호버 시 글자 색상 변경 */
+        }
+
+        /* 사이드 네비게이션 메뉴 닫기 버튼에 대한 스타일 설정 */
+        .sidenav .closebtn {
+            position: absolute;
+            /* 절대 위치 설정 */
+            top: 0;
+            /* 상단에 위치 */
+            right: 25px;
+            /* 우측에 위치 */
+            font-size: 36px;
+            /* 글자 크기 설정 */
+            margin-left: 50px;
+            /* 왼쪽 여백 설정 */
+        }
+
+        /* 화면 높이가 450px 이하일 때의 미디어 쿼리 설정 */
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+                /* 상단 여백 감소 */
+            }
+
+            .sidenav a {
+                font-size: 18px;
+                /* 글자 크기 감소 */
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <h2>Animated Sidenav Example</h2>
+    <p>Click on the element below to open the side navigation menu.</p>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+    <script>
+        // 사이드 네비게이션을 열기 위한 함수
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px"; // 너비를 250px로 설정하여 열림
+        }
+
+        // 사이드 네비게이션을 닫기 위한 함수
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0"; // 너비를 0으로 설정하여 닫힘
+        }
+    </script>
+
+
+</body>
+
+</html>

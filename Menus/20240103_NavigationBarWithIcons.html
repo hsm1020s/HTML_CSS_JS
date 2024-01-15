@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    /* 전체 문서의 글꼴을 Arial, Helvetica, sans-serif로 지정 */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* 네비게이션 바 스타일 설정 */
+    .navbar {
+        width: 100%;
+        /* 너비를 100%로 설정 */
+        background-color: #555;
+        /* 배경색을 어두운 회색(#555)으로 지정 */
+        overflow: auto;
+        /* 네비게이션 바가 너비를 벗어나면 스크롤바 생성 */
+    }
+
+    /* 네비게이션 바 링크 스타일 설정 */
+    .navbar a {
+        float: left;
+        /* 링크를 왼쪽으로 부유(floating)시킴 */
+        padding: 12px;
+        /* 안쪽 여백을 12px로 설정 */
+        color: white;
+        /* 글자 색상을 흰색으로 지정 */
+        text-decoration: none;
+        /* 밑줄 제거 */
+        font-size: 17px;
+        /* 글자 크기를 17px로 설정 */
+    }
+
+    /* 네비게이션 바 링크에 마우스를 올렸을 때의 스타일 설정 */
+    .navbar a:hover {
+        background-color: #000;
+        /* 배경색을 검은색(#000)으로 변경 */
+    }
+
+    /* 활성화된 링크의 스타일 설정 */
+    .active {
+        background-color: #04AA6D;
+        /* 배경색을 초록색(#04AA6D)으로 지정 */
+    }
+
+    /* 화면 너비가 500px 이하일 때의 스타일 설정 */
+    @media screen and (max-width: 500px) {
+        .navbar a {
+            float: none;
+            /* 부유 속성 해제 */
+            display: block;
+            /* 블록 레벨로 변경하여 세로로 정렬 */
+        }
+    }
+</style>
+
+
+<body>
+
+    <h2>Responsive Navigation Bar with Icons</h2>
+    <p>Try to resize the browser window to see the responsive effect.</p>
+
+    <div class="navbar">
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+        <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+        <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+    </div>
+
+</body>
+
+</html>
